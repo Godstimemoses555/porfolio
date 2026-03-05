@@ -23,7 +23,7 @@ const Footer = () => {
 
             </Link>
 
-            <Link className='text-[20px] text-black' href="/Projects">
+            <Link className='text-[20px] text-black' href="/projects">
 
              Projects
             
@@ -37,7 +37,7 @@ const Footer = () => {
 
           </div>
 
-          <div className='flex lg:w-[500px] items-center justify-center'>
+          <div className='flex lg:w-[500px] items-center justify-center '>
             <h1 className='text-[20px] text-black'>© Design by <span className='text-white text-[20px] font-bold'>MosTech </span> All Right Reserve 2025 </h1>
 
           </div>
