@@ -11,7 +11,7 @@ const Projectdemo = () => {
     { title: "API Integration", link: "/projects/Api" },
     { title: "Other Project", link: "https://event-site-ssz8.vercel.app/" },
     { title: "Cassandra Database", link: "/projects/cassandra" },
-    { title: "FastAPI", link: "/projects/fastapi" },
+    { title: "Full Stack", link: "https://react-pro-rose-two.vercel.app/" },
     { title: "Next.js App", link: "/projects/nextjs" },
   ];
 
