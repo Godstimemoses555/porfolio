@@ -8,11 +8,11 @@ const Projectdemo = () => {
 
   const items = [
     { title: "E‑Commerce", link: "https://realdemo-two.vercel.app/" },
-    { title: "API Integration", link: "/projects/Api" },
+    { title: "API Integration", link: "/projects" },
     { title: "Other Project", link: "https://event-site-ssz8.vercel.app/" },
-    { title: "Cassandra Database", link: "/projects/cassandra" },
+    { title: "Cassandra Database", link: "/projects" },
     { title: "Full Stack", link: "https://react-pro-rose-two.vercel.app/" },
-    { title: "Next.js App", link: "/projects/nextjs" },
+    { title: "Next.js App", link: "/projects" },
   ];
 
   const fadeUp = {

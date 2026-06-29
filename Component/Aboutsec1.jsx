@@ -1,18 +1,7 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import { Send } from 'lucide-react' // Telegram-style icon
+import { Send } from 'lucide-react'
 
 const Aboutsec1 = () => {
-  const colors = ["text-yellow-500", "text-blue-400", "text-green-400", "text-pink-500", "text-purple-500"]
-  const [colorIndex, setColorIndex] = useState(0)
-
-  // Auto color change effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setColorIndex((prev) => (prev + 1) % colors.length)
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white py-16 px-6">
@@ -26,7 +15,7 @@ const Aboutsec1 = () => {
       </div>
 
       {/* === Animated Text === */}
-      <h2 className={`text-3xl sm:text-4xl font-bold mb-4 transition-all duration-500 ${colors[colorIndex]}`}>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-yellow-500">
         Let’s Build Something Great Together
       </h2>
 

@@ -1,20 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { useRouter } from "next/navigation";
 import SetIcons from "./SetIcons";
 
 const Sec2 = () => {
   const router = useRouter();
-  const colors=["text-purple-500", "text-green-500", "text-yellow-500",  "text-pink-500", "text-red-500"]
-  const [colorIndex,setColorIndex]=useState(0)
-
-  useEffect(()=>{
-    const interval =setInterval(() => {
-      setColorIndex((prev) =>  ( prev +1) % colors .length)
-    }, 2000);
-     return  () => clearInterval(interval)
-  }, [])
 
   return (
     
@@ -37,7 +28,7 @@ const Sec2 = () => {
 
       {/* Right Section: Text + Buttons */}
       <div className="flex flex-col lg:w-[50%] gap-6 items-center lg:items-start text-center lg:text-left">
-        <h1 className={`text-4xl lg:text-5xl font-bold  leading-tight transition-all duration-500  ${colors[colorIndex]} `}>
+        <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-yellow-500">
           Crafting Modern & Scalable Web Experiences
         </h1>
 
