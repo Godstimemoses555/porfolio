@@ -1,67 +1,152 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
-const Projectdemo = () => {
-  const router = useRouter();
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    category: "Full Stack",
+    description:
+      "A professional e-commerce experience with product management, payment integration and responsive layouts built to convert.",
+    tags: ["Next.js", "Payments", "Responsive"],
+    link: "https://realdemo-two.vercel.app/",
+    gradient:
+      "radial-gradient(circle at 18% 18%, rgba(212,175,55,0.4), transparent 58%), linear-gradient(135deg, #111a2b 0%, #080c15 100%)",
+  },
+  {
+    title: "React Pro — Healthcare",
+    category: "Full Stack",
+    description:
+      "A modern healthcare web application with an accessible interface for patient services and care workflows.",
+    tags: ["React", "Healthcare", "Accessible"],
+    link: "https://react-pro-rose-two.vercel.app/",
+    gradient:
+      "radial-gradient(circle at 75% 20%, rgba(125,211,252,0.28), transparent 58%), linear-gradient(135deg, #0e1b2a 0%, #080c15 100%)",
+  },
+  {
+    title: "Event & Ticketing",
+    category: "Frontend",
+    description:
+      "A clean event and ticketing website focused on strong presentation, smooth browsing and responsive layouts.",
+    tags: ["React", "UI/UX", "Responsive"],
+    link: "https://event-site-ssz8.vercel.app/",
+    gradient:
+      "radial-gradient(circle at 20% 80%, rgba(45,212,191,0.22), transparent 60%), linear-gradient(135deg, #0c1b1a 0%, #080c15 100%)",
+  },
 
-  const items = [
-    { title: "E‑Commerce", link: "https://realdemo-two.vercel.app/" },
-    { title: "API Integration", link: "/projects" },
-    { title: "Other Project", link: "https://event-site-ssz8.vercel.app/" },
-    { title: "Cassandra Database", link: "/projects" },
-    { title: "Full Stack", link: "https://react-pro-rose-two.vercel.app/" },
-    { title: "Next.js App", link: "/projects" },
-  ];
+];
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
+export default function Projectdemo({ showHeading = true }) {
   return (
-    <section className="w-full min-h-screen bg-black text-white py-16 flex flex-col items-center px-6">
-      <motion.h1
-        variants={fadeUp}
-        initial="hidden"
-        animate="show"
-        className="text-3xl md:text-4xl font-bold mb-6 text-center"
-      >
-        Explore My Classic Projects
-      </motion.h1>
+    <section className="relative overflow-hidden py-20 sm:py-28">
+      <div className="shell">
+        {showHeading && (
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="Selected Work"
+              title={
+                <>
+                  Built to be used.
+                  <br />
+                  <span className="text-gradient">Designed to be felt.</span>
+                </>
+              }
+              description="A selection of products I have engineered — focused on performance, clean interfaces and real-world usability."
+            />
 
-      <motion.p
-        variants={fadeUp}
-        initial="hidden"
-        animate="show"
-        className="text-gray-300 max-w-2xl text-center mb-12"
-      >
-        A collection of my best work — from powerful API integrations to modern e‑commerce builds, high‑performance databases, and more.
-      </motion.p>
+            <Reveal delay={0.1}>
+              <Link
+                href="/projects"
+                className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-ivory transition-colors hover:text-gold-200"
+              >
+                All projects
+                <ArrowRight size={15} />
+              </Link>
+            </Reveal>
+          </div>
+        )}
 
-      <div className="flex flex-wrap gap-6 justify-center w-full max-w-5xl">
-        {items.map((item, index) => (
-          <motion.div
-            key={index}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="bg-zinc-900 border border-zinc-700 rounded-2xl p-6 w-[280px] flex flex-col items-center shadow-xl hover:scale-105 transition duration-300"
-          >
-            <h2 className="text-xl font-semibold mb-4">{item.title}</h2>
+        <div className={`grid gap-5 sm:grid-cols-2 ${showHeading ? "mt-12" : ""}`}>
+          {projects.map((project, index) => (
+            <Reveal key={project.title} delay={index * 0.07}>
+              <article className="glass-card group flex h-full flex-col overflow-hidden rounded-2xl">
+                <div
+                  className="relative h-40 overflow-hidden border-b border-white/10 sm:h-44"
+                  style={{ backgroundImage: project.gradient }}
+                >
+                  <div
+                    className="ambient-grid absolute inset-0 opacity-60"
+                    aria-hidden="true"
+                  />
 
-            <button
-              onClick={() => router.push(item.link)}
-              className="mt-auto bg-yellow-500 text-black px-4 py-2 rounded-xl font-medium hover:bg-gray-300 transition"
-            >
-              View Project
-            </button>
-          </motion.div>
-        ))}
+                  <div className="absolute left-5 top-5 flex gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-white/25" />
+                    <span className="h-2 w-2 rounded-full bg-white/20" />
+                    <span className="h-2 w-2 rounded-full bg-white/15" />
+                  </div>
+
+                  <span className="glass absolute right-4 top-4 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-ivory/80">
+                    {project.category}
+                  </span>
+
+                  <span className="absolute bottom-3 left-5 font-display text-6xl leading-none text-white/15 sm:text-7xl">
+                    0{index + 1}
+                  </span>
+
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent"
+                    aria-hidden="true"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-xl text-ivory sm:text-2xl">
+                      {project.title}
+                    </h3>
+
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title}`}
+                      className="glass flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-gold-300 transition-colors hover:text-gold-200"
+                    >
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] text-mist"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-200 transition-colors hover:text-gold-100"
+                  >
+                    Visit project
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Projectdemo;
+}

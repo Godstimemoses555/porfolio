@@ -1,17 +1,31 @@
-import Contactsec1 from '@/Component/Contactsec1'
-import Projectdemo from '@/Component/Projecdemo'
+import PageHero from "@/Component/PageHero";
+import Projectdemo from "@/Component/Projecdemo";
+import Sec5 from "@/Component/Sec5";
 
+export const metadata = {
+  title: "Projects | Godstime Moses",
+  description:
+    "Selected work by Godstime Moses — e-commerce, healthcare, event platforms and frontend products.",
+};
 
-
-import React from 'react'
-
-const page = () => {
+const ProjectsPage = () => {
   return (
     <div>
-    <Contactsec1/>
-    <Projectdemo/>
-    </div>
-  )
-}
+      <PageHero
+        eyebrow="Portfolio"
+        title={
+          <>
+            Work made to be{" "}
+            <span className="text-gradient">used and remembered.</span>
+          </>
+        }
+        description="A selection of products I have designed and engineered — focused on performance, clean interfaces and real-world usability."
+      />
 
-export default page
+      <Projectdemo showHeading={false} />
+      <Sec5 />
+    </div>
+  );
+};
+
+export default ProjectsPage;

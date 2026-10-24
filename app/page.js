@@ -1,14 +1,11 @@
-import React from 'react'
-import Home from '@/Component/Home'
+import Home from "@/Component/Home";
 
-
-const page = () => {
+const HomePage = () => {
   return (
     <div>
-      <Home/>
-      
+      <Home />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default HomePage;

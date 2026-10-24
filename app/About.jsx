@@ -1,148 +1,254 @@
-'use client'
-import Aboutsec1 from '@/Component/Aboutsec1'
-import SetIcons from '@/Component/SetIcons'
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import {
+  Accessibility,
+  ArrowUpRight,
+  Download,
+  ExternalLink,
+  Gauge,
+  Layers,
+  MapPin,
+  ShieldCheck,
+} from "lucide-react";
+import PageHero from "@/Component/PageHero";
+import MotionImage from "@/Component/MotionImage";
+import SetIcons from "@/Component/SetIcons";
+import Reveal from "@/Component/Reveal";
+import SectionHeading from "@/Component/SectionHeading";
+import Experience from "@/Component/Experience";
+import Projectdemo from "@/Component/Projecdemo";
+import Sec5 from "@/Component/Sec5";
+
+const facts = [
+  { label: "Role", value: "Full Stack & Mobile App Developer" },
+  { label: "Based in", value: "Lagos, Nigeria" },
+  { label: "Experience", value: "2+ years" },
+  { label: "Focus", value: "Web · Mobile Apps · APIs" },
+];
+
+const principles = [
+  {
+    icon: ShieldCheck,
+    title: "Clarity first",
+    description:
+      "Simple structure, readable code and interfaces that explain themselves without a manual.",
+  },
+  {
+    icon: Gauge,
+    title: "Built for speed",
+    description:
+      "Lean pages, responsive interactions and attention to the details that make a product feel fast.",
+  },
+  {
+    icon: Accessibility,
+    title: "Open to everyone",
+    description:
+      "Semantic markup, usable contrast and keyboard-friendly flows as a default, not an afterthought.",
+  },
+];
 
 const About = () => {
   return (
-
     <div>
+      <PageHero
+        eyebrow="About Me"
+        title={
+          <>
+            A developer who cares about{" "}
+            <span className="text-gradient">the details.</span>
+          </>
+        }
+        description="I build modern, responsive web experiences where clean design, dependable engineering and thoughtful interaction meet."
+      />
 
-      <div className="bg-black text-white">
+      <section className="relative overflow-hidden pb-20 sm:pb-28">
+        <div className="shell">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <Reveal>
+              <div className="lg:sticky lg:top-28">
+                <div className="glass-card overflow-hidden rounded-3xl p-2.5">
+                  <div className="relative overflow-hidden rounded-[1.4rem]">
+                    <MotionImage
+                      src="https://ik.imagekit.io/aqlcazi2f/junior%20dev.jpeg"
+                    alt="Godstime Moses, full stack and mobile app developer"
+                    priority
+                    containerClassName="aspect-square w-full"
+                  />
+                  <span className="glass-strong absolute left-3 top-3 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-gold-200">
+                    Full Stack & Mobile App Developer
+                  </span>
+                  </div>
 
-      {/* === ABOUT SECTION === */}
-      <div className="flex flex-col lg:flex-row gap-8 p-6 lg:h-[100vh] items-center justify-center">
+                  <div className="p-4 sm:p-5">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-mist">
+                      <span className="inline-flex items-center gap-1.5">
+                        <MapPin size={13} className="text-gold-300/80" />
+                        Lagos, Nigeria
+                      </span>
+                      <span className="h-1 w-1 rounded-full bg-mist/30" />
+                      <span>Open to work</span>
+                    </div>
 
-        {/* === LEFT SECTION: IMAGE + ICONS === */}
-        <div className="flex flex-col items-center justify-center lg:w-[40%]">
-          <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[450px] lg:h-[450px] rounded-2xl overflow-hidden border-4 border-yellow-500 shadow-2xl hover:scale-105 transition-transform duration-500">
-            <img
-              src="https://ik.imagekit.io/90uckyblwx/Snapchat-1481906845-removebg-preview.png"
-              alt="Godstime MosTech"
-              className="w-full h-full object-cover"
-            />
-          </div>
+                    <dl className="mt-5 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
+                      {facts.map((fact) => (
+                        <div key={fact.label}>
+                          <dt className="text-[9px] uppercase tracking-[0.2em] text-mist/50">
+                            {fact.label}
+                          </dt>
+                          <dd className="mt-1 text-sm text-ivory/85">
+                            {fact.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
 
-          <div className="mt-6 flex gap-4">
-            <SetIcons />
+                    <SetIcons className="mt-5" />
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <div>
+              <SectionHeading
+                eyebrow="The short version"
+                title={
+                  <>
+                    Engineering that feels
+                    <br />
+                    <span className="text-gradient">effortless.</span>
+                  </>
+                }
+              />
+
+              <div className="mt-6 space-y-5 text-sm leading-relaxed text-mist sm:text-base">
+                <p>
+                  I am a professional full stack and mobile app developer
+                  building modern, responsive and scalable websites and mobile
+                  apps. I am passionate about clean code, innovative solutions
+                  and elegant design, with a strong focus on frontend
+                  engineering.
+                </p>
+                <p>
+                  I build high-performance, pixel-perfect interfaces with React,
+                  Next.js, React Native, WordPress and Tailwind CSS, delivering
+                  smooth interactions and accessible experiences across every
+                  screen size. Behind the interface, I work with Python, FastAPI,
+                  Cassandra and Firebase to build reliable APIs and data layers.
+                </p>
+                <p>
+                  Over the past two years I have worked with{" "}
+                  <span className="text-ivory">Talent Nation</span>,{" "}
+                  <span className="text-ivory">Raito Tech</span> and{" "}
+                  <span className="text-ivory">RHS School</span>, shipping 8
+                  projects across e-commerce, healthcare, events and personal
+                  products. I also build AI-integrated mobile experiences with
+                  React Native.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-3 gap-2.5 sm:max-w-md">
+                {[
+                  { value: "2+", label: "Years" },
+                  { value: "8", label: "Projects" },
+                  { value: "2", label: "Teams" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="glass rounded-xl px-3 py-3 text-center"
+                  >
+                    <p className="font-display text-2xl text-gold-200">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-[10px] text-mist">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gold-400 px-5 py-3 text-sm font-semibold text-ink-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gold-300"
+                >
+                  View projects
+                  <ArrowUpRight size={15} />
+                </Link>
+
+                <a
+                  href="/GodstimeMosesCV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-ivory transition-all duration-300 hover:-translate-y-0.5 hover:text-gold-200"
+                >
+                  <ExternalLink size={16} />
+                  View CV
+                </a>
+
+                <a
+                  href="/GodstimeMosesCV.pdf"
+                  download
+                  className="inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-mist transition-colors hover:text-gold-200"
+                >
+                  <Download size={16} />
+                  Download CV
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* === RIGHT SECTION: TEXT + BUTTONS === */}
-        <div className="flex flex-col lg:w-[50%] gap-6 items-center lg:items-start text-center lg:text-left">
-          <h1 className="text-4xl lg:text-5xl font-bold text-yellow-500 leading-tight">
-            Crafting Modern & Scalable Web Experiences
-          </h1>
+      <section className="relative overflow-hidden pb-20 sm:pb-28">
+        <div className="shell">
+          <div className="grid gap-5 md:grid-cols-3">
+            {principles.map((principle, index) => {
+              const Icon = principle.icon;
 
-          <p className="text-lg lg:text-xl text-gray-300">
-            I am a professional web developer, building modern, responsive, and scalable websites.
-            Passionate about clean code, innovative solutions, and elegant design.
-          </p>
-
-          {/* === BUTTONS === */}
-          <div className="flex gap-4 mt-4 flex-wrap justify-center lg:justify-start">
-            <Link
-              href="/projects"
-              className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Projects
-            </Link>
-
-            <Link
-              href="/GodstimeMosesCV.pdf"
-              download
-              className="bg-transparent border-2 border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition-colors duration-300"
-            >
-              Download CV
-            </Link>
+              return (
+                <Reveal key={principle.title} delay={index * 0.07}>
+                  <article className="glass-card flex h-full flex-col rounded-2xl p-6">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-gold-400/20 bg-gold-400/[0.06] text-gold-300">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="mt-5 font-display text-xl text-ivory">
+                      {principle.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-mist">
+                      {principle.description}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
+
+          <Reveal delay={0.1}>
+            <div className="glass mt-6 flex flex-col items-start gap-4 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-gold-400/20 bg-gold-400/[0.06] text-gold-300">
+                  <Layers size={18} />
+                </span>
+                <p className="text-sm text-ivory/85">
+                  Comfortable across the stack — from the first component to the
+                  final deployment.
+                </p>
+              </div>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-200 transition-colors hover:text-gold-100"
+              >
+                Work with me
+                <ArrowUpRight size={15} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
-      </div>
+      </section>
 
-      {/* === PROJECTS SECTION === */}
-      <div className="py-16 px-6 bg-gray-900">
-        <h2 className="text-3xl lg:text-4xl font-bold text-center text-yellow-500 mb-10">
-          My Featured Projects
-        </h2>
-
-        {/* === FLEX INSTEAD OF GRID === */}
-        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
-
-          {/* === Project 1 === */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-2 w-[300px]">
-            <h3 className="text-2xl font-semibold text-yellow-400 mb-4">E-Commerce Website</h3>
-            <p className="text-gray-400 mb-6">A professional e-commerce platform with product management and payment integration.</p>
-            <Link
-              href="https://realdemo-two.vercel.app/"
-              target="_blank"
-              className="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Project
-            </Link>
-          </div>
-
-          {/* === Project 2 === */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-2 w-[300px]">
-            <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Portfolio Website</h3>
-            <p className="text-gray-400 mb-6">A sleek personal portfolio showcasing creativity and responsive design.</p>
-            <Link
-              href="https://your-portfolio-link.com"
-              target="_blank"
-              className="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Project
-            </Link>
-          </div>
-
-          {/* === Project 3 === */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-2 w-[300px]">
-            <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Blog Platform</h3>
-            <p className="text-gray-400 mb-6">A modern blog system with a CMS-style interface and smooth reading experience.</p>
-            <Link
-              href="https://event-site-azure.vercel.app/"
-              target="_blank"
-              className="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Project
-            </Link>
-          </div>
-
-          {/* === Project 4 === */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-2 w-[300px]">
-            <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Restaurant Website</h3>
-            <p className="text-gray-400 mb-6">An elegant restaurant website with menus, gallery, and reservation features.</p>
-            <Link
-              href="https://your-restaurant-link.com"
-              target="_blank"
-              className="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Project
-            </Link>
-          </div>
-
-          {/* === Project 5 === */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700 hover:shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-2 w-[300px]">
-            <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Business Dashboard</h3>
-            <p className="text-gray-400 mb-6">A data-driven dashboard for managing analytics and performance insights.</p>
-            <Link
-              href="https://your-dashboard-link.com"
-              target="_blank"
-              className="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
-            >
-              View Project
-            </Link>
-          </div>
-
-        </div>
-      </div>
+      <Experience />
+      <Projectdemo />
+      <Sec5 />
     </div>
+  );
+};
 
-    <Aboutsec1/>
-
-    </div>
-    
-  )
-}
-
-export default About
+export default About;

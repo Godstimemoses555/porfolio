@@ -1,45 +1,49 @@
 "use client";
 
 import React from "react";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
-const SetIcons = () => {
+const iconClass =
+  "glass flex h-10 w-10 items-center justify-center rounded-xl text-gold-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-400/50 hover:text-gold-200";
+
+const SetIcons = ({ className = "" }) => {
   return (
-    <div className="flex justify-center items-center gap-4 mt-4">
+    <div className={`flex items-center gap-2.5 ${className}`}>
       <a
-        href="https://www.linkedin.com/"
+        href="https://github.com/Godstimemoses555"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gray-900 text-yellow-500 p-2 rounded-full hover:bg-yellow-500 hover:text-black transition-colors duration-300"
+        aria-label="GitHub"
+        className={iconClass}
       >
-        <Linkedin size={24} />
+        <Github size={18} />
       </a>
 
       <a
-        href="https://www.facebook.com/"
+        href="https://www.linkedin.com/in/godstime-inyang/"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gray-900 text-yellow-500 p-2 rounded-full hover:bg-yellow-500 hover:text-black transition-colors duration-300"
+        aria-label="LinkedIn"
+        className={iconClass}
       >
-        <Facebook size={24} />
+        <Linkedin size={18} />
       </a>
 
       <a
-        href="https://www.instagram.com/"
+        href="https://x.com/godstime_i39699"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gray-900 text-yellow-500 p-2 rounded-full hover:bg-yellow-500 hover:text-black transition-colors duration-300"
+        aria-label="X"
+        className={iconClass}
       >
-        <Instagram size={24} />
-      </a>
-
-      <a
-        href="https://www.twitter.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-gray-900 text-yellow-500 p-2 rounded-full hover:bg-yellow-500 hover:text-black transition-colors duration-300"
-      >
-        <Twitter size={24} />
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="h-[17px] w-[17px]"
+          aria-hidden="true"
+        >
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
       </a>
     </div>
   );

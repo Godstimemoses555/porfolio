@@ -1,12 +1,17 @@
-import React from 'react'
-import About from '../About'
+import About from "../About";
 
-const page = () => {
+export const metadata = {
+  title: "About | Godstime Moses",
+  description:
+    "Learn more about Godstime Moses — a full stack developer with two years of experience building responsive web products with React, Next.js, Python and FastAPI.",
+};
+
+const AboutPage = () => {
   return (
     <div>
-   <About/>
+      <About />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default AboutPage;

@@ -1,65 +1,102 @@
-"use client";
+import {
+  Monitor,
+  Server,
+  Database,
+  Smartphone,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import CodeShowcase from "./CodeShowcase";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
-import React from "react";
-import { Code, Server, Database, Layout } from "lucide-react";
-import { motion } from "framer-motion";
-
-const features = [
+const skills = [
   {
-    icon: <Code size={36} className="text-yellow-500 mb-4" />,
-    title: "Clean Code",
-    description: "Writing readable and maintainable code to ensure long-term project quality.",
+    icon: Monitor,
+    title: "Frontend",
+    stack: "React · Next.js · WordPress · Tailwind",
   },
   {
-    icon: <Server size={36} className="text-yellow-500 mb-4" />,
-    title: "Backend Integration",
-    description: "Connecting frontend with scalable and secure backend services seamlessly.",
+    icon: Server,
+    title: "Backend",
+    stack: "Python · FastAPI · REST",
   },
   {
-    icon: <Database size={36} className="text-yellow-500 mb-4" />,
-    title: "Database Management",
-    description: "Designing and managing databases for efficient data storage and retrieval.",
+    icon: Database,
+    title: "Databases",
+    stack: "Cassandra · Firebase",
   },
   {
-    icon: <Layout size={36} className="text-yellow-500 mb-4" />,
-    title: "Responsive Design",
-    description: "Building modern, responsive layouts that look great on any device.",
+    icon: Smartphone,
+    title: "Mobile",
+    stack: "React Native · Mobile Apps",
+  },
+  {
+    icon: Sparkles,
+    title: "UI craft",
+    stack: "Responsive · Accessible · Fast",
+  },
+  {
+    icon: Wrench,
+    title: "CMS & Tooling",
+    stack: "WordPress · Git · GitHub",
   },
 ];
 
 const Sec3 = () => {
   return (
-    <div className="bg-black text-white p-6">
-      {/* Top Section */}
-      <div className="flex lg:flex-row lg:h-[50vh] gap-6">
-        <div className="flex flex-col gap-4 lg:w-[50%]">
-          <h1 className="text-yellow-500 text-[50px] font-bold">Work Process.</h1>
-          <p className="text-[20px]">
-            Driven by design and powered by code, I create digital interfaces that feel intuitive and perform seamlessly. Every layout, animation, and component is crafted with intention — merging usability with visual clarity.  
-            I blend clean design with efficient code to build engaging, user-friendly web experiences that stand out.
-          </p>
+    <section className="relative overflow-hidden py-20 sm:py-28">
+      <div className="shell">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow="Skills & Craft"
+            title={
+              <>
+                The stack behind
+                <br />
+                <span className="text-gradient">the work.</span>
+              </>
+            }
+            description="A practical toolkit for building complete products — polished interfaces, dependable APIs and the data layer that connects them."
+          />
+
+          <Reveal delay={0.1}>
+            <span className="glass inline-flex items-center gap-2.5 rounded-full px-5 py-3 text-sm text-ivory/80">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-300" />
+              2+ years hands-on
+            </span>
+          </Reveal>
+        </div>
+
+        <div className="mt-12 grid items-start gap-6 lg:grid-cols-12">
+          <Reveal className="lg:col-span-7">
+            <CodeShowcase />
+          </Reveal>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:col-span-5">
+            {skills.map((skill, index) => {
+              const Icon = skill.icon;
+
+              return (
+                <Reveal key={skill.title} delay={index * 0.05}>
+                  <div className="glass-card h-full rounded-2xl p-4 sm:p-5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gold-400/20 bg-gold-400/[0.06] text-gold-300">
+                      <Icon size={17} />
+                    </span>
+                    <h3 className="mt-4 text-sm font-semibold text-ivory">
+                      {skill.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-mist">
+                      {skill.stack}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </div>
-
-      {/* Bottom Section: Features with animation */}
-      <div className="flex flex-col lg:flex-row lg:gap-8 mt-10 items-center justify-center">
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col items-center bg-gray-900 p-6 rounded-xl shadow-lg text-center mb-6 lg:mb-0"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            {feature.icon}
-            <h2 className="text-xl font-bold mb-2">{feature.title}</h2>
-            <p className="text-white text-sm">{feature.description}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 
